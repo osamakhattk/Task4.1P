@@ -1,18 +1,23 @@
 import React from 'react';
 import './Tutorials.css'
 import { Card, Image } from 'semantic-ui-react'
+import tutorialList from './TutorialList';
 
-const Tutorials = () => (
-    <Card>
-    <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
+function tutorialComponent(tutorials, i) {
+    return <Card>
+        <Image pic={tutorials.pic} />
         <Card.Content>
-            <Card.Header>Random Tutorial</Card.Header>
-            <Card.Meta>Published in 2016</Card.Meta>
-            <Card.Description>
-                This tutorial is only for a test.
-            </Card.Description>
+            <Card.Header header={tutorials.header} />
+            <Card.Meta date={tutorials.date} />
+            <Card.Description description={tutorials.description} />
         </Card.Content>
-    </Card>
-)
+    </Card> 
+}
+
+const Tutorials = () => {
+    return <div>
+    {tutorialList.map(tutorialComponent)}
+    </div>
+}
 
 export default Tutorials 

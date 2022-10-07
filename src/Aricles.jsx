@@ -1,19 +1,23 @@
 import React from "react";
 import "./Articles.css"
 import { Card, Image } from 'semantic-ui-react'
+import articleList from "./ArticleList";
+
+function articleComponent (articles , i) {
+    return <Card>
+        <Image pic={articles.pic} />
+        <Card.Content>
+            <Card.Header header={articles.header} />
+            <Card.Meta date={articles.date} />
+            <Card.Description description={articles.description} />
+        </Card.Content>
+    </Card>
+} 
+
 
 const Articles = () => {
     return <div>
-    <Card>
-    <Image src='./article.jpeg' wrapped ui={false} />
-        <Card.Content>
-            <Card.Header>Deep into Green</Card.Header>
-            <Card.Meta>Published in 2016</Card.Meta>
-            <Card.Description>
-                The history of a color.
-            </Card.Description>
-        </Card.Content>
-    </Card>
+    {articleList.map(articleComponent)}
     </div>
 }
 
